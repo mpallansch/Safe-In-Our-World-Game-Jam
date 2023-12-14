@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://d16uamkxdv2aq"]
+[gd_scene load_steps=31 format=3 uid="uid://d16uamkxdv2aq"]
 
 [ext_resource type="Texture2D" uid="uid://d0l7yy0jhjmvr" path="res://Sprites/MiamiWorldBeachTown.png" id="1_8h03l"]
 [ext_resource type="PackedScene" uid="uid://cfrbg0ctltybn" path="res://main_player.tscn" id="2_s3f2t"]
@@ -72,6 +72,22 @@ height = 132.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mjb5o"]
 radius = 29.0
 height = 128.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ovtnk"]
+height = 68.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xj4dt"]
+height = 68.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0i6r8"]
+height = 72.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jjau1"]
+radius = 8.93237
+height = 76.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fbj15"]
+height = 70.0
 
 [node name="MiamiWorld" type="Node2D"]
 
@@ -381,3 +397,38 @@ offset_right = 367.0
 offset_bottom = 55.0
 text = "Miami Beach"
 fit_content = true
+
+[node name="StaticBody2D10" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D10"]
+position = Vector2(435, -151)
+rotation = 0.23911
+shape = SubResource("CapsuleShape2D_ovtnk")
+
+[node name="StaticBody2D11" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D11"]
+position = Vector2(459, -50)
+rotation = 0.23911
+shape = SubResource("CapsuleShape2D_xj4dt")
+
+[node name="StaticBody2D12" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D12"]
+position = Vector2(451, -275)
+rotation = 0.120428
+shape = SubResource("CapsuleShape2D_0i6r8")
+
+[node name="StaticBody2D13" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D13"]
+position = Vector2(450, 160)
+rotation = 0.23911
+shape = SubResource("CapsuleShape2D_jjau1")
+
+[node name="StaticBody2D14" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D14"]
+position = Vector2(448, 283)
+rotation = 0.226893
+shape = SubResource("CapsuleShape2D_fbj15")
