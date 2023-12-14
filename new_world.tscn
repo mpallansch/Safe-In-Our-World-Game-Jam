@@ -1,0 +1,272 @@
+[gd_scene load_steps=18 format=3 uid="uid://cg0se3t7gwqr4"]
+
+[ext_resource type="Script" path="res://Camera2D.gd" id="2_56458"]
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="2_i6mra"]
+[ext_resource type="PackedScene" uid="uid://cfrbg0ctltybn" path="res://main_player.tscn" id="3_1hc3k"]
+[ext_resource type="Texture2D" uid="uid://dt4boe6cvc8j2" path="res://Sprites/WorldSprites/BushSprite.png" id="4_l0dqe"]
+[ext_resource type="Texture2D" uid="uid://c8aft33jvmi6e" path="res://Sprites/WorldSprites/BushCutSprite.png" id="5_5k4ep"]
+[ext_resource type="AudioStream" uid="uid://dv85e6kob7jtn" path="res://Audio/Music/miamipapo - good vibes.wav" id="7_q6ccg"]
+[ext_resource type="Texture2D" uid="uid://ddydluqn45pdi" path="res://Sprites/WorldSprites/GrasslandPlateau.png" id="8_38256"]
+[ext_resource type="Texture2D" uid="uid://x7yp1o37fdq6" path="res://Sprites/WorldSprites/GrasslandPlateauClimb.png" id="9_pqarw"]
+[ext_resource type="Texture2D" uid="uid://143715t548cv" path="res://Sprites/WorldSprites/GrassSprite720x720.png" id="9_v4ii3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yahp8"]
+radius = 8.0
+height = 16.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_coaiy"]
+distance = 62.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cfujq"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1v5dt"]
+normal = Vector2(0, 1)
+distance = -194.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_o8gc6"]
+normal = Vector2(1, 0)
+distance = -78.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_chtvp"]
+normal = Vector2(-1, 0)
+distance = -78.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fmybi"]
+distance = 21.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2rep1"]
+size = Vector2(12, 12)
+
+[node name="NewWorld" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+z_index = 15
+position = Vector2(127, 101)
+script = ExtResource("2_i6mra")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(11, -3)
+scale = Vector2(167.069, 210.637)
+script = ExtResource("2_56458")
+
+[node name="MainPlayer" parent="CharacterBody2D" instance=ExtResource("3_1hc3k")]
+position = Vector2(-130, -96)
+disable_mode = 2
+slide_on_ceiling = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(28, -10)
+shape = SubResource("CapsuleShape2D_yahp8")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_q6ccg")
+autoplay = true
+
+[node name="Borders" type="Node" parent="."]
+
+[node name="Border" type="StaticBody2D" parent="Borders"]
+visible = false
+position = Vector2(97, 254)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Border"]
+shape = SubResource("WorldBoundaryShape2D_coaiy")
+
+[node name="Border2" type="StaticBody2D" parent="Borders"]
+visible = false
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Border2"]
+position = Vector2(100, 0)
+shape = SubResource("WorldBoundaryShape2D_cfujq")
+
+[node name="Border 3" type="StaticBody2D" parent="Borders"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Border 3"]
+position = Vector2(222, 194)
+shape = SubResource("WorldBoundaryShape2D_1v5dt")
+
+[node name="Border 4" type="StaticBody2D" parent="Borders"]
+visible = false
+position = Vector2(78, 94)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Border 4"]
+shape = SubResource("WorldBoundaryShape2D_o8gc6")
+
+[node name="Border 5" type="StaticBody2D" parent="Borders"]
+visible = false
+position = Vector2(243, 98)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Border 5"]
+shape = SubResource("WorldBoundaryShape2D_chtvp")
+
+[node name="Border 6" type="StaticBody2D" parent="Borders"]
+visible = false
+position = Vector2(231, 214)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Border 6"]
+shape = SubResource("WorldBoundaryShape2D_fmybi")
+
+[node name="Properties" type="Node" parent="."]
+
+[node name="Properties" type="Node2D" parent="Properties"]
+
+[node name="GrassSprite720x720" type="Sprite2D" parent="Properties/Properties"]
+position = Vector2(141, 86)
+texture = ExtResource("9_v4ii3")
+
+[node name="GrassSprite720x720" type="Sprite2D" parent="Properties/Properties/GrassSprite720x720"]
+position = Vector2(-720, 0)
+texture = ExtResource("9_v4ii3")
+
+[node name="GrassSprite720x720" type="Sprite2D" parent="Properties/Properties/GrassSprite720x720/GrassSprite720x720"]
+position = Vector2(1435, 0)
+texture = ExtResource("9_v4ii3")
+
+[node name="GrassSprite720x720" type="Sprite2D" parent="Properties/Properties/GrassSprite720x720/GrassSprite720x720/GrassSprite720x720"]
+position = Vector2(-715, -715)
+texture = ExtResource("9_v4ii3")
+
+[node name="GrassSprite720x720" type="Sprite2D" parent="Properties/Properties/GrassSprite720x720/GrassSprite720x720/GrassSprite720x720/GrassSprite720x720"]
+position = Vector2(-720, 0)
+texture = ExtResource("9_v4ii3")
+
+[node name="GrassSprite720x720" type="Sprite2D" parent="Properties/Properties/GrassSprite720x720/GrassSprite720x720/GrassSprite720x720/GrassSprite720x720/GrassSprite720x720"]
+position = Vector2(1435, 0)
+texture = ExtResource("9_v4ii3")
+
+[node name="BushCutSprite" type="Sprite2D" parent="Properties/Properties"]
+position = Vector2(136, 136)
+texture = ExtResource("5_5k4ep")
+
+[node name="BushSprite" type="Sprite2D" parent="Properties/Properties"]
+position = Vector2(56, 136)
+texture = ExtResource("4_l0dqe")
+
+[node name="BushSprite2" type="Sprite2D" parent="Properties/Properties/BushSprite"]
+position = Vector2(0, 17)
+texture = ExtResource("4_l0dqe")
+
+[node name="BushSprite3" type="Sprite2D" parent="Properties/Properties/BushSprite"]
+position = Vector2(16, 17)
+texture = ExtResource("4_l0dqe")
+
+[node name="BushSprite4" type="Sprite2D" parent="Properties/Properties/BushSprite"]
+position = Vector2(48, 17)
+texture = ExtResource("4_l0dqe")
+
+[node name="BushSprite5" type="Sprite2D" parent="Properties/Properties/BushSprite"]
+position = Vector2(32, 17)
+texture = ExtResource("4_l0dqe")
+
+[node name="BushSprite7" type="Sprite2D" parent="Properties/Properties/BushSprite"]
+position = Vector2(64, 0)
+texture = ExtResource("4_l0dqe")
+
+[node name="BushSprite8" type="Sprite2D" parent="Properties/Properties/BushSprite"]
+position = Vector2(48, 0)
+texture = ExtResource("4_l0dqe")
+
+[node name="BushSprite" type="Sprite2D" parent="Properties/Properties/BushSprite"]
+position = Vector2(16, 0)
+texture = ExtResource("4_l0dqe")
+
+[node name="BushSprite9" type="Sprite2D" parent="Properties/Properties/BushSprite"]
+position = Vector2(32, 0)
+texture = ExtResource("4_l0dqe")
+
+[node name="BushSprite10" type="Sprite2D" parent="Properties/Properties/BushSprite"]
+position = Vector2(65, 17)
+texture = ExtResource("4_l0dqe")
+
+[node name="BushSprite11" type="Sprite2D" parent="Properties/Properties/BushSprite"]
+position = Vector2(80, 17)
+texture = ExtResource("4_l0dqe")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Properties/Properties"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Properties/Properties/StaticBody2D"]
+position = Vector2(56, 135)
+shape = SubResource("RectangleShape2D_2rep1")
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="Properties/Properties"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Properties/Properties/StaticBody2D7"]
+position = Vector2(72, 135)
+shape = SubResource("RectangleShape2D_2rep1")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="Properties/Properties"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Properties/Properties/StaticBody2D6"]
+position = Vector2(88, 135)
+shape = SubResource("RectangleShape2D_2rep1")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="Properties/Properties"]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Properties/Properties/StaticBody2D5"]
+position = Vector2(88, 152)
+shape = SubResource("RectangleShape2D_2rep1")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Properties/Properties"]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Properties/Properties/StaticBody2D4"]
+position = Vector2(72, 152)
+shape = SubResource("RectangleShape2D_2rep1")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Properties/Properties"]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Properties/Properties/StaticBody2D3"]
+position = Vector2(56, 152)
+shape = SubResource("RectangleShape2D_2rep1")
+
+[node name="StaticBody2D10" type="StaticBody2D" parent="Properties/Properties"]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Properties/Properties/StaticBody2D10"]
+position = Vector2(104, 152)
+shape = SubResource("RectangleShape2D_2rep1")
+
+[node name="StaticBody2D11" type="StaticBody2D" parent="Properties/Properties"]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Properties/Properties/StaticBody2D11"]
+position = Vector2(121, 152)
+shape = SubResource("RectangleShape2D_2rep1")
+
+[node name="StaticBody2D9" type="StaticBody2D" parent="Properties/Properties"]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Properties/Properties/StaticBody2D9"]
+position = Vector2(136, 152)
+shape = SubResource("RectangleShape2D_2rep1")
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="Properties/Properties"]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Properties/Properties/StaticBody2D8"]
+position = Vector2(104, 135)
+shape = SubResource("RectangleShape2D_2rep1")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Properties/Properties"]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Properties/Properties/StaticBody2D2"]
+position = Vector2(120, 135)
+shape = SubResource("RectangleShape2D_2rep1")
+
+[node name="GrasslandPlateau" type="Sprite2D" parent="Properties"]
+visible = false
+position = Vector2(90, 44)
+texture = ExtResource("8_38256")
+
+[node name="GrasslandPlateau" type="Sprite2D" parent="Properties/GrasslandPlateau"]
+position = Vector2(-42, -1)
+texture = ExtResource("8_38256")
+
+[node name="GrasslandPlateau" type="Sprite2D" parent="Properties/GrasslandPlateau/GrasslandPlateau"]
+position = Vector2(-42, 1)
+texture = ExtResource("8_38256")
+
+[node name="GrasslandPlateauClimb" type="Sprite2D" parent="Properties/GrasslandPlateau"]
+visible = false
+position = Vector2(-36, 11.5)
+scale = Vector2(0.726415, 0.675926)
+texture = ExtResource("9_pqarw")

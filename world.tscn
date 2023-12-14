@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://b7qpcn5cggcu5"]
+
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="2_7f0kl"]
+[ext_resource type="Texture2D" uid="uid://fbjsgw4equpc" path="res://Sprites/SNES - The Legend of Zelda A Link to the Past - Light World.png" id="2_rmbsy"]
+[ext_resource type="PackedScene" uid="uid://cfrbg0ctltybn" path="res://main_player.tscn" id="4_jd5hj"]
+[ext_resource type="Script" path="res://Camera2D.gd" id="4_ohvfi"]
+
+[sub_resource type="Environment" id="Environment_anx2f"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_236b1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_04hkw"]
+radius = 8.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2fp5o"]
+radius = 13.0
+height = 258.0
+
+[node name="World" type="Node2D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_anx2f")
+camera_attributes = SubResource("CameraAttributesPractical_236b1")
+
+[node name="Snes-TheLegendOfZeldaALinkToThePast-LightWorld" type="Sprite2D" parent="."]
+z_index = 15
+position = Vector2(147, -307)
+texture = ExtResource("2_rmbsy")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+z_index = 15
+position = Vector2(127, 101)
+script = ExtResource("2_7f0kl")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(11, -3)
+scale = Vector2(167.069, 210.637)
+script = ExtResource("4_ohvfi")
+
+[node name="MainPlayer" parent="CharacterBody2D" instance=ExtResource("4_jd5hj")]
+position = Vector2(-130, -96)
+disable_mode = 2
+slide_on_ceiling = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(30, -13)
+shape = SubResource("CircleShape2D_04hkw")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(223, 111)
+shape = SubResource("CapsuleShape2D_2fp5o")

@@ -1,0 +1,383 @@
+[gd_scene load_steps=26 format=3 uid="uid://d16uamkxdv2aq"]
+
+[ext_resource type="Texture2D" uid="uid://d0l7yy0jhjmvr" path="res://Sprites/MiamiWorldBeachTown.png" id="1_8h03l"]
+[ext_resource type="PackedScene" uid="uid://cfrbg0ctltybn" path="res://main_player.tscn" id="2_s3f2t"]
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="2_ydw3n"]
+[ext_resource type="Script" path="res://Camera2D.gd" id="3_6tkbx"]
+[ext_resource type="AudioStream" uid="uid://dpxke50bqniq7" path="res://Audio/Music/Carlos Lyra - Influencia Do Jazz.WAV" id="5_37rj3"]
+[ext_resource type="Texture2D" uid="uid://dlvy2syksqf2t" path="res://Sprites/Cars/pickuptruck.png" id="6_ews58"]
+[ext_resource type="Texture2D" uid="uid://c3s0aae7krhpu" path="res://Sprites/palme-animation1.png" id="6_jck2r"]
+[ext_resource type="Script" path="res://PalmTree.gd" id="7_58uel"]
+[ext_resource type="Texture2D" uid="uid://1ghtvr3npodw" path="res://Sprites/Cars/car3.png" id="7_h1wxf"]
+[ext_resource type="Texture2D" uid="uid://q71ew005iogp" path="res://Sprites/Cars/car4.png" id="8_n3ahk"]
+[ext_resource type="Texture2D" uid="uid://d0q24pkaymot1" path="res://Sprites/Cars/car2.png" id="9_at45c"]
+[ext_resource type="Texture2D" uid="uid://gq6a7v3dd0y5" path="res://Sprites/pixel-art-house.png" id="12_iv0ap"]
+[ext_resource type="Texture2D" uid="uid://mrud41gha40q" path="res://Sprites/Cars/car1.png" id="13_cgf1k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gfi0c"]
+radius = 8.0
+
+[sub_resource type="Animation" id="Animation_ej85q"]
+resource_name = "PalmTree"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q43rx"]
+_data = {
+"PalmTree": SubResource("Animation_ej85q")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u02u7"]
+size = Vector2(201.333, 89.3333)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x4665"]
+size = Vector2(135.667, 134)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_grqpa"]
+radius = 30.0
+height = 130.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_svuqb"]
+radius = 30.0
+height = 130.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ejvvj"]
+radius = 16.0
+height = 370.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qud65"]
+radius = 38.0
+height = 148.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r0kei"]
+radius = 34.0
+height = 156.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_47fmo"]
+radius = 31.0
+height = 132.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mjb5o"]
+radius = 29.0
+height = 128.0
+
+[node name="MiamiWorld" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8h03l")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+z_index = 15
+position = Vector2(315, 70)
+script = ExtResource("2_ydw3n")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(11, -3)
+scale = Vector2(167.069, 210.637)
+script = ExtResource("3_6tkbx")
+
+[node name="MainPlayer" parent="CharacterBody2D" instance=ExtResource("2_s3f2t")]
+position = Vector2(-130, -96)
+disable_mode = 2
+slide_on_ceiling = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(30, -13)
+shape = SubResource("CircleShape2D_gfi0c")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_37rj3")
+volume_db = -3.306
+autoplay = true
+
+[node name="Pickuptruck" type="Sprite2D" parent="."]
+position = Vector2(-342, 127)
+scale = Vector2(3, 3)
+texture = ExtResource("6_ews58")
+
+[node name="Car3" type="Sprite2D" parent="."]
+position = Vector2(375, -222)
+scale = Vector2(3, 3)
+texture = ExtResource("7_h1wxf")
+
+[node name="Car4" type="Sprite2D" parent="."]
+position = Vector2(294, 48)
+scale = Vector2(3, 3)
+texture = ExtResource("8_n3ahk")
+
+[node name="Car5" type="Sprite2D" parent="."]
+position = Vector2(-421, -262)
+scale = Vector2(3, 3)
+texture = ExtResource("8_n3ahk")
+
+[node name="Car2" type="Sprite2D" parent="."]
+position = Vector2(-232, 136)
+scale = Vector2(3, 3)
+texture = ExtResource("9_at45c")
+
+[node name="PalmTrees" type="Sprite2D" parent="."]
+position = Vector2(454, -300)
+texture = ExtResource("6_jck2r")
+hframes = 4
+vframes = 4
+frame = 10
+
+[node name="PalmTrees" type="Sprite2D" parent="PalmTrees"]
+position = Vector2(-14, 116)
+texture = ExtResource("6_jck2r")
+hframes = 4
+vframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PalmTrees/PalmTrees"]
+root_node = NodePath("../../AnimationPlayer")
+libraries = {
+"": SubResource("AnimationLibrary_q43rx")
+}
+
+[node name="PalmTrees2" type="Sprite2D" parent="PalmTrees"]
+position = Vector2(10, 224)
+texture = ExtResource("6_jck2r")
+hframes = 4
+vframes = 4
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PalmTrees/PalmTrees2"]
+root_node = NodePath("../../PalmTrees3/AnimationPlayer2")
+libraries = {
+"": SubResource("AnimationLibrary_q43rx")
+}
+
+[node name="PalmTrees3" type="Sprite2D" parent="PalmTrees"]
+position = Vector2(-2, 436)
+texture = ExtResource("6_jck2r")
+hframes = 4
+vframes = 4
+frame = 1
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="PalmTrees/PalmTrees3"]
+root_node = NodePath("../../PalmTrees/AnimationPlayer")
+libraries = {
+"": SubResource("AnimationLibrary_q43rx")
+}
+
+[node name="PalmTrees4" type="Sprite2D" parent="PalmTrees"]
+position = Vector2(-3, 558)
+texture = ExtResource("6_jck2r")
+hframes = 4
+vframes = 4
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PalmTrees"]
+libraries = {
+"": SubResource("AnimationLibrary_q43rx")
+}
+script = ExtResource("7_58uel")
+
+[node name="PalmTrees3" type="Sprite2D" parent="."]
+position = Vector2(-491, -370)
+texture = ExtResource("6_jck2r")
+hframes = 4
+vframes = 4
+frame = 1
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="PalmTrees3"]
+root_node = NodePath("../../PalmTrees/AnimationPlayer")
+libraries = {
+"": SubResource("AnimationLibrary_q43rx")
+}
+
+[node name="PalmTrees3" type="Sprite2D" parent="PalmTrees3"]
+position = Vector2(-5, 53)
+texture = ExtResource("6_jck2r")
+hframes = 4
+vframes = 4
+frame = 1
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="PalmTrees3/PalmTrees3"]
+root_node = NodePath("../../PalmTrees/AnimationPlayer")
+libraries = {
+"": SubResource("AnimationLibrary_q43rx")
+}
+
+[node name="PalmTrees3" type="Sprite2D" parent="PalmTrees3/PalmTrees3"]
+position = Vector2(1, 55)
+texture = ExtResource("6_jck2r")
+hframes = 4
+vframes = 4
+frame = 1
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="PalmTrees3/PalmTrees3/PalmTrees3"]
+root_node = NodePath("../../PalmTrees/AnimationPlayer")
+libraries = {
+"": SubResource("AnimationLibrary_q43rx")
+}
+
+[node name="PalmTrees3" type="Sprite2D" parent="PalmTrees3/PalmTrees3/PalmTrees3"]
+position = Vector2(6, 72)
+texture = ExtResource("6_jck2r")
+hframes = 4
+vframes = 4
+frame = 1
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="PalmTrees3/PalmTrees3/PalmTrees3/PalmTrees3"]
+root_node = NodePath("../../PalmTrees/AnimationPlayer")
+libraries = {
+"": SubResource("AnimationLibrary_q43rx")
+}
+
+[node name="PalmTrees3" type="Sprite2D" parent="PalmTrees3/PalmTrees3/PalmTrees3/PalmTrees3"]
+position = Vector2(-12, 54)
+texture = ExtResource("6_jck2r")
+hframes = 4
+vframes = 4
+frame = 1
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="PalmTrees3/PalmTrees3/PalmTrees3/PalmTrees3/PalmTrees3"]
+root_node = NodePath("../../PalmTrees/AnimationPlayer")
+libraries = {
+"": SubResource("AnimationLibrary_q43rx")
+}
+
+[node name="PalmTrees3" type="Sprite2D" parent="PalmTrees3/PalmTrees3/PalmTrees3/PalmTrees3/PalmTrees3"]
+position = Vector2(3, 41)
+texture = ExtResource("6_jck2r")
+hframes = 4
+vframes = 4
+frame = 1
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="PalmTrees3/PalmTrees3/PalmTrees3/PalmTrees3/PalmTrees3/PalmTrees3"]
+root_node = NodePath("../../PalmTrees/AnimationPlayer")
+libraries = {
+"": SubResource("AnimationLibrary_q43rx")
+}
+
+[node name="PalmTrees3" type="Sprite2D" parent="PalmTrees3/PalmTrees3/PalmTrees3/PalmTrees3/PalmTrees3/PalmTrees3"]
+position = Vector2(720, -264)
+texture = ExtResource("6_jck2r")
+hframes = 4
+vframes = 4
+frame = 1
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="PalmTrees3/PalmTrees3/PalmTrees3/PalmTrees3/PalmTrees3/PalmTrees3/PalmTrees3"]
+root_node = NodePath("../../PalmTrees/AnimationPlayer")
+libraries = {
+"": SubResource("AnimationLibrary_q43rx")
+}
+
+[node name="House" type="Sprite2D" parent="."]
+position = Vector2(149, 10)
+scale = Vector2(3, 3)
+texture = ExtResource("12_iv0ap")
+
+[node name="House2" type="Sprite2D" parent="."]
+position = Vector2(-50, 12)
+scale = Vector2(3, 3)
+texture = ExtResource("12_iv0ap")
+
+[node name="House3" type="Sprite2D" parent="."]
+position = Vector2(150, 192)
+scale = Vector2(3, 3)
+texture = ExtResource("12_iv0ap")
+
+[node name="House4" type="Sprite2D" parent="."]
+position = Vector2(-49, 188)
+scale = Vector2(3, 3)
+texture = ExtResource("12_iv0ap")
+
+[node name="House5" type="Sprite2D" parent="."]
+position = Vector2(-276, -296)
+scale = Vector2(3, 3)
+texture = ExtResource("12_iv0ap")
+
+[node name="House6" type="Sprite2D" parent="."]
+position = Vector2(-74, -293)
+scale = Vector2(3, 3)
+texture = ExtResource("12_iv0ap")
+
+[node name="House7" type="Sprite2D" parent="."]
+position = Vector2(125, -296)
+scale = Vector2(3, 3)
+texture = ExtResource("12_iv0ap")
+
+[node name="Car1" type="Sprite2D" parent="."]
+position = Vector2(-458, 128)
+scale = Vector2(3, 3)
+texture = ExtResource("13_cgf1k")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-342, 127)
+scale = Vector2(3, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(89.6667, -143.333)
+shape = SubResource("RectangleShape2D_u02u7")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(-342, 127)
+scale = Vector2(3, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(129.833, -4.33334)
+shape = SubResource("RectangleShape2D_x4665")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(293, 48)
+shape = SubResource("CapsuleShape2D_grqpa")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(-423, -263)
+shape = SubResource("CapsuleShape2D_svuqb")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+position = Vector2(-505, -212)
+shape = SubResource("CapsuleShape2D_ejvvj")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6"]
+position = Vector2(-233, 136)
+shape = SubResource("CapsuleShape2D_qud65")
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D7"]
+position = Vector2(-343, 125)
+shape = SubResource("CapsuleShape2D_r0kei")
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D8"]
+position = Vector2(-460, 130)
+shape = SubResource("CapsuleShape2D_47fmo")
+
+[node name="StaticBody2D9" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D9"]
+position = Vector2(375, -215)
+shape = SubResource("CapsuleShape2D_mjb5o")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 264.0
+offset_top = -37.0
+offset_right = 367.0
+offset_bottom = 55.0
+text = "Miami Beach"
+fit_content = true

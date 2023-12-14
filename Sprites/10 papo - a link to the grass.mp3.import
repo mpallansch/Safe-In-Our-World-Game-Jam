@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cdove3ecocvy3"
+path="res://.godot/imported/10 papo - a link to the grass.mp3-1e50e61fbd1bb50b8c1cfb5b54ae6942.mp3str"
+
+[deps]
+
+source_file="res://Sprites/10 papo - a link to the grass.mp3"
+dest_files=["res://.godot/imported/10 papo - a link to the grass.mp3-1e50e61fbd1bb50b8c1cfb5b54ae6942.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
