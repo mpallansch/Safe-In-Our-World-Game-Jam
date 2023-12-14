@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://d16uamkxdv2aq"]
+[gd_scene load_steps=34 format=3 uid="uid://d16uamkxdv2aq"]
 
 [ext_resource type="Texture2D" uid="uid://d0l7yy0jhjmvr" path="res://Sprites/MiamiWorldBeachTown.png" id="1_8h03l"]
 [ext_resource type="PackedScene" uid="uid://cfrbg0ctltybn" path="res://main_player.tscn" id="2_s3f2t"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://d0q24pkaymot1" path="res://Sprites/Cars/car2.png" id="9_at45c"]
 [ext_resource type="Texture2D" uid="uid://gq6a7v3dd0y5" path="res://Sprites/pixel-art-house.png" id="12_iv0ap"]
 [ext_resource type="Texture2D" uid="uid://mrud41gha40q" path="res://Sprites/Cars/car1.png" id="13_cgf1k"]
+[ext_resource type="Texture2D" uid="uid://djcmnckk4kjuk" path="res://addons/notes_tab/MiamiWorldBeach.png" id="14_bky83"]
+[ext_resource type="AudioStream" uid="uid://disyufuudttlf" path="res://Audio/sea waves sound effects.mp3" id="15_koimh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gfi0c"]
 radius = 8.0
@@ -88,6 +90,10 @@ height = 76.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fbj15"]
 height = 70.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_di2bj"]
+radius = 75.0
+height = 814.0
 
 [node name="MiamiWorld" type="Node2D"]
 
@@ -391,6 +397,7 @@ position = Vector2(375, -215)
 shape = SubResource("CapsuleShape2D_mjb5o")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
 offset_left = 264.0
 offset_top = -37.0
 offset_right = 367.0
@@ -432,3 +439,21 @@ shape = SubResource("CapsuleShape2D_jjau1")
 position = Vector2(448, 283)
 rotation = 0.226893
 shape = SubResource("CapsuleShape2D_fbj15")
+
+[node name="MiamiWorldBeach" type="Sprite2D" parent="."]
+position = Vector2(1043, 0)
+texture = ExtResource("14_bky83")
+
+[node name="StaticBody2D15" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D15"]
+position = Vector2(1047, -17)
+rotation = -0.0523599
+shape = SubResource("CapsuleShape2D_di2bj")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="StaticBody2D15/CollisionShape2D"]
+stream = ExtResource("15_koimh")
+volume_db = -4.953
+autoplay = true
+max_distance = 600.0
+max_polyphony = 2
