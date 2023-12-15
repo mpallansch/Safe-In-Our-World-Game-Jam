@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://d16uamkxdv2aq"]
+[gd_scene load_steps=53 format=3 uid="uid://d16uamkxdv2aq"]
 
 [ext_resource type="Texture2D" uid="uid://d0l7yy0jhjmvr" path="res://Sprites/MiamiWorldBeachTown.png" id="1_8h03l"]
 [ext_resource type="PackedScene" uid="uid://cfrbg0ctltybn" path="res://main_player.tscn" id="2_s3f2t"]
@@ -13,11 +13,13 @@
 [ext_resource type="Texture2D" uid="uid://gq6a7v3dd0y5" path="res://Sprites/pixel-art-house.png" id="12_iv0ap"]
 [ext_resource type="Texture2D" uid="uid://mrud41gha40q" path="res://Sprites/Cars/car1.png" id="13_cgf1k"]
 [ext_resource type="Script" path="res://Car.gd" id="13_soy6t"]
-[ext_resource type="Texture2D" uid="uid://cuswjts4frwjh" path="res://Sprites/MiamiWorldBeachwithPier-Sheet.png" id="14_w0qpo"]
+[ext_resource type="Texture2D" uid="uid://dmi7sx6ul2b5h" path="res://Sprites/WorldSprites/MiamiWorldBeachwithPierInSync-Sheet-Sheet.png" id="14_q8nfk"]
 [ext_resource type="AudioStream" uid="uid://disyufuudttlf" path="res://Audio/sea waves sound effects.mp3" id="15_koimh"]
 [ext_resource type="Script" path="res://BeachWaves.gd" id="15_r4x2h"]
+[ext_resource type="Texture2D" uid="uid://ck06hnrv3k61w" path="res://Sprites/WorldSprites/MiamiWorldBeachInSync-Sheet-Sheet.png" id="16_e2rkr"]
 [ext_resource type="Script" path="res://PalmTrees2.gd" id="16_rdoda"]
 [ext_resource type="Animation" uid="uid://bmneltwk0kb4a" path="res://Animations/PalmTree.res" id="17_c4xt6"]
+[ext_resource type="AudioStream" uid="uid://dopbyx240ihhq" path="res://Audio/sea waves sound effects2.mp3" id="18_gnbfr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gfi0c"]
 radius = 8.0
@@ -191,6 +193,14 @@ _data = {
 radius = 75.0
 height = 542.932
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x7yhb"]
+radius = 63.0
+height = 900.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2sxko"]
+radius = 74.0
+height = 850.0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_svuqb"]
 radius = 30.0
 height = 130.0
@@ -236,8 +246,7 @@ shape = SubResource("CircleShape2D_gfi0c")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_37rj3")
-volume_db = -3.306
-autoplay = true
+volume_db = 0.656
 
 [node name="Pickuptruck" type="Sprite2D" parent="."]
 position = Vector2(-342, 127)
@@ -510,7 +519,7 @@ shape = SubResource("CapsuleShape2D_fbj15")
 
 [node name="MiamiWorldBeach" type="Sprite2D" parent="."]
 position = Vector2(1043, 0)
-texture = ExtResource("14_w0qpo")
+texture = ExtResource("14_q8nfk")
 hframes = 4
 script = ExtResource("15_r4x2h")
 
@@ -519,19 +528,64 @@ libraries = {
 "": SubResource("AnimationLibrary_68qyy")
 }
 
-[node name="StaticBody2D15" type="StaticBody2D" parent="."]
+[node name="MiamiWorldBeach2" type="Sprite2D" parent="."]
+position = Vector2(1043, 733)
+texture = ExtResource("16_e2rkr")
+hframes = 4
+script = ExtResource("15_r4x2h")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D15"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MiamiWorldBeach2"]
+libraries = {
+"": SubResource("AnimationLibrary_68qyy")
+}
+
+[node name="MiamiWorldBeach3" type="Sprite2D" parent="."]
+position = Vector2(1043, -733)
+texture = ExtResource("16_e2rkr")
+hframes = 4
+script = ExtResource("15_r4x2h")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MiamiWorldBeach3"]
+libraries = {
+"": SubResource("AnimationLibrary_68qyy")
+}
+
+[node name="OceanWithPier" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OceanWithPier"]
 position = Vector2(1047, 104)
 rotation = -0.0523599
 shape = SubResource("CapsuleShape2D_di2bj")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="StaticBody2D15/CollisionShape2D"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="OceanWithPier/CollisionShape2D"]
 stream = ExtResource("15_koimh")
 volume_db = -4.953
 autoplay = true
 max_distance = 600.0
 max_polyphony = 2
+
+[node name="OceanWithoutPier" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OceanWithoutPier"]
+position = Vector2(1049, 682)
+shape = SubResource("CapsuleShape2D_x7yhb")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="OceanWithoutPier/CollisionShape2D"]
+stream = ExtResource("18_gnbfr")
+volume_db = -4.0
+autoplay = true
+max_distance = 600.0
+
+[node name="OceanWithoutPier2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OceanWithoutPier2"]
+position = Vector2(1042, -752)
+shape = SubResource("CapsuleShape2D_2sxko")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="OceanWithoutPier2/CollisionShape2D"]
+stream = ExtResource("18_gnbfr")
+autoplay = true
+max_distance = 600.0
 
 [node name="Car7" type="StaticBody2D" parent="."]
 

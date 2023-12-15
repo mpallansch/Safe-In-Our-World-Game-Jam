@@ -1,10 +1,33 @@
 extends CharacterBody2D
 
+var paused
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
+# UI nodes
+@onready var pause_screen =  %Pause_Menu
 
+func _input(event):
+	#interact with world         
+		#if event.is_action_pressed("ui_interact"):
+			#var target = ray_cast.get_collider()
+		#if target != null:
+			#if target.is_in_group("NPC"):
+				# Talk to NPC
+			   # target.dialog()
+			#return     
+#show pause menu
+					if !pause_screen.visible:
+						if event.is_action_pressed("Pause"):
+				#pause game     s
+							get_tree().paused = true
+				#show pause screen popup
+							%Pause_Menu.visible = true
+				#stops movement processing 
+							set_physics_process(false)
+				#set pauses state to be true
+							paused = true
 
 func _process(delta):
 	#Movement when direction button pressed

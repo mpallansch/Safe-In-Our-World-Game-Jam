@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://cfrbg0ctltybn"]
+[gd_scene load_steps=21 format=3 uid="uid://cfrbg0ctltybn"]
 
 [ext_resource type="Script" path="res://main_player.gd" id="1_t26lu"]
 [ext_resource type="Texture2D" uid="uid://dsxr3k2qdqwfd" path="res://Sprites/Main Character Sprites/MainCharWalkAndSwordspritesheet.png" id="2_3oo56"]
 [ext_resource type="PackedScene" uid="uid://db64f0l182b8o" path="res://Overlap/HurtBox.tscn" id="3_4itbo"]
+[ext_resource type="FontFile" uid="uid://l83qfd6t414y" path="res://Fonts/OldSchoolAdventures-42j9.ttf" id="4_33dph"]
 
 [sub_resource type="Animation" id="Animation_tqmq3"]
 resource_name = "DownRight"
@@ -270,5 +271,66 @@ libraries = {
 position = Vector2(160, 81)
 shape = SubResource("CapsuleShape2D_vyks0")
 debug_color = Color(0.121569, 0.631373, 0.411765, 0.419608)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pause_Menu" type="ColorRect" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0.211765, 0.337255, 0.333333, 1)
+
+[node name="Resume" type="Button" parent="CanvasLayer/Pause_Menu"]
+custom_minimum_size = Vector2(180, 20)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -40.0
+offset_right = 90.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_33dph")
+theme_override_font_sizes/font_size = 12
+text = "RESUME   GAME"
+
+[node name="Save" type="Button" parent="CanvasLayer/Pause_Menu"]
+custom_minimum_size = Vector2(180, 20)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_right = 90.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_33dph")
+theme_override_font_sizes/font_size = 12
+text = "SAVE   GAME"
+
+[node name="Quit" type="Button" parent="CanvasLayer/Pause_Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = 30.0
+offset_right = 90.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_33dph")
+theme_override_font_sizes/font_size = 12
+text = "QUIT   GAME"
 
 [editable path="HurtBox"]
