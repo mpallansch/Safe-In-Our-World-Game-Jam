@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://gq6a7v3dd0y5" path="res://Sprites/pixel-art-house.png" id="12_iv0ap"]
 [ext_resource type="Texture2D" uid="uid://mrud41gha40q" path="res://Sprites/Cars/car1.png" id="13_cgf1k"]
 [ext_resource type="Script" path="res://Car.gd" id="13_soy6t"]
-[ext_resource type="Texture2D" uid="uid://d0p16oap3xb3u" path="res://Sprites/MiamiWorldBeach-Sheet.png" id="14_kfpmk"]
+[ext_resource type="Texture2D" uid="uid://cjvfam68sl1ha" path="res://Sprites/MiamiWorldBeach2-Sheet.png" id="14_hq5nx"]
 [ext_resource type="AudioStream" uid="uid://disyufuudttlf" path="res://Audio/sea waves sound effects.mp3" id="15_koimh"]
 [ext_resource type="Script" path="res://BeachWaves.gd" id="15_r4x2h"]
 [ext_resource type="Script" path="res://PalmTrees2.gd" id="16_rdoda"]
@@ -244,6 +244,7 @@ texture = ExtResource("7_h1wxf")
 position = Vector2(-421, -262)
 scale = Vector2(3, 3)
 texture = ExtResource("8_n3ahk")
+hframes = 4
 
 [node name="Car2" type="Sprite2D" parent="."]
 position = Vector2(-232, 136)
@@ -500,7 +501,7 @@ shape = SubResource("CapsuleShape2D_fbj15")
 
 [node name="MiamiWorldBeach" type="Sprite2D" parent="."]
 position = Vector2(1043, 0)
-texture = ExtResource("14_kfpmk")
+texture = ExtResource("14_hq5nx")
 hframes = 4
 script = ExtResource("15_r4x2h")
 
