@@ -247,6 +247,7 @@ shape = SubResource("CircleShape2D_gfi0c")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_37rj3")
 volume_db = 0.656
+autoplay = true
 
 [node name="Pickuptruck" type="Sprite2D" parent="."]
 position = Vector2(-342, 127)
