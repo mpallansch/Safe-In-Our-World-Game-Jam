@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djcmnckk4kjuk"
-path="res://.godot/imported/MiamiWorldBeach.png-f55198306ea4596a6531d59cc68c46f1.ctex"
+uid="uid://d0p16oap3xb3u"
+path="res://.godot/imported/MiamiWorldBeach-Sheet.png-178b646ef8eb62dcc6ead18e34f1d0b3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/notes_tab/MiamiWorldBeach.png"
-dest_files=["res://.godot/imported/MiamiWorldBeach.png-f55198306ea4596a6531d59cc68c46f1.ctex"]
+source_file="res://Sprites/MiamiWorldBeach-Sheet.png"
+dest_files=["res://.godot/imported/MiamiWorldBeach-Sheet.png-178b646ef8eb62dcc6ead18e34f1d0b3.ctex"]
 
 [params]
 

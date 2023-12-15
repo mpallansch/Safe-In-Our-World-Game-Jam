@@ -1,8 +1,23 @@
-[gd_scene load_steps=19 format=3 uid="uid://cfrbg0ctltybn"]
+[gd_scene load_steps=20 format=3 uid="uid://cfrbg0ctltybn"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_jabj8"]
+[ext_resource type="Script" path="res://main_player.gd" id="1_t26lu"]
 [ext_resource type="Texture2D" uid="uid://dsxr3k2qdqwfd" path="res://Sprites/Main Character Sprites/MainCharWalkAndSwordspritesheet.png" id="2_3oo56"]
 [ext_resource type="PackedScene" uid="uid://db64f0l182b8o" path="res://Overlap/HurtBox.tscn" id="3_4itbo"]
+
+[sub_resource type="Animation" id="Animation_tqmq3"]
+resource_name = "DownRight"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainPlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [63]
+}
 
 [sub_resource type="Animation" id="Animation_mlv26"]
 resource_name = "IdleDown"
@@ -213,6 +228,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7dpq4"]
 _data = {
+"DownRight": SubResource("Animation_tqmq3"),
 "IdleDown": SubResource("Animation_mlv26"),
 "IdleLeft": SubResource("Animation_v52ae"),
 "IdleRight": SubResource("Animation_x4kok"),
@@ -233,7 +249,7 @@ radius = 8.0
 height = 20.0
 
 [node name="MainPlayer" type="CharacterBody2D"]
-script = ExtResource("1_jabj8")
+script = ExtResource("1_t26lu")
 
 [node name="MainPlayerSprite" type="Sprite2D" parent="."]
 position = Vector2(160, 81)

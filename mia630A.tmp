@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://d16uamkxdv2aq"]
+[gd_scene load_steps=36 format=3 uid="uid://d16uamkxdv2aq"]
 
 [ext_resource type="Texture2D" uid="uid://d0l7yy0jhjmvr" path="res://Sprites/MiamiWorldBeachTown.png" id="1_8h03l"]
 [ext_resource type="PackedScene" uid="uid://cfrbg0ctltybn" path="res://main_player.tscn" id="2_s3f2t"]
@@ -7,17 +7,15 @@
 [ext_resource type="AudioStream" uid="uid://dpxke50bqniq7" path="res://Audio/Music/Carlos Lyra - Influencia Do Jazz.WAV" id="5_37rj3"]
 [ext_resource type="Texture2D" uid="uid://dlvy2syksqf2t" path="res://Sprites/Cars/pickuptruck.png" id="6_ews58"]
 [ext_resource type="Texture2D" uid="uid://c3s0aae7krhpu" path="res://Sprites/palme-animation1.png" id="6_jck2r"]
+[ext_resource type="Script" path="res://PalmTree.gd" id="7_58uel"]
 [ext_resource type="Texture2D" uid="uid://1ghtvr3npodw" path="res://Sprites/Cars/car3.png" id="7_h1wxf"]
 [ext_resource type="Texture2D" uid="uid://q71ew005iogp" path="res://Sprites/Cars/car4.png" id="8_n3ahk"]
 [ext_resource type="Texture2D" uid="uid://d0q24pkaymot1" path="res://Sprites/Cars/car2.png" id="9_at45c"]
 [ext_resource type="Texture2D" uid="uid://gq6a7v3dd0y5" path="res://Sprites/pixel-art-house.png" id="12_iv0ap"]
 [ext_resource type="Texture2D" uid="uid://mrud41gha40q" path="res://Sprites/Cars/car1.png" id="13_cgf1k"]
-[ext_resource type="Script" path="res://Car.gd" id="13_soy6t"]
-[ext_resource type="Texture2D" uid="uid://d0p16oap3xb3u" path="res://Sprites/MiamiWorldBeach-Sheet.png" id="14_kfpmk"]
+[ext_resource type="Texture2D" uid="uid://djcmnckk4kjuk" path="res://addons/notes_tab/MiamiWorldBeach.png" id="14_bky83"]
+[ext_resource type="Script" path="res://DrivableCar.gd" id="14_n1le5"]
 [ext_resource type="AudioStream" uid="uid://disyufuudttlf" path="res://Audio/sea waves sound effects.mp3" id="15_koimh"]
-[ext_resource type="Script" path="res://BeachWaves.gd" id="15_r4x2h"]
-[ext_resource type="Script" path="res://PalmTrees2.gd" id="16_rdoda"]
-[ext_resource type="Animation" uid="uid://bmneltwk0kb4a" path="res://Animations/PalmTree.res" id="17_c4xt6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gfi0c"]
 radius = 8.0
@@ -58,78 +56,6 @@ height = 130.0
 radius = 86.0
 height = 172.0
 
-[sub_resource type="Animation" id="Animation_b74u7"]
-resource_name = "CarDown"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_nd1q8"]
-resource_name = "CarLeft"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-
-[sub_resource type="Animation" id="Animation_1j3hc"]
-resource_name = "CarRight"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [3]
-}
-
-[sub_resource type="Animation" id="Animation_2nrl1"]
-resource_name = "CarUp"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_qhwp0"]
-_data = {
-"CarDown": SubResource("Animation_b74u7"),
-"CarLeft": SubResource("Animation_nd1q8"),
-"CarRight": SubResource("Animation_1j3hc"),
-"CarUp": SubResource("Animation_2nrl1")
-}
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ejvvj"]
 radius = 16.0
 height = 370.0
@@ -166,27 +92,6 @@ height = 76.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fbj15"]
 height = 70.0
 
-[sub_resource type="Animation" id="Animation_aplbt"]
-resource_name = "Waves"
-length = 5.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 3, 2, 0, 1, 0, 0, 0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_68qyy"]
-_data = {
-"Waves": SubResource("Animation_aplbt")
-}
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_di2bj"]
 radius = 75.0
 height = 814.0
@@ -194,11 +99,6 @@ height = 814.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_svuqb"]
 radius = 30.0
 height = 130.0
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_eaxr6"]
-_data = {
-"PalmTree": ExtResource("17_c4xt6")
-}
 
 [node name="MiamiWorld" type="Node2D"]
 
@@ -240,6 +140,11 @@ position = Vector2(375, -222)
 scale = Vector2(3, 3)
 texture = ExtResource("7_h1wxf")
 
+[node name="Car4" type="Sprite2D" parent="."]
+position = Vector2(294, 48)
+scale = Vector2(3, 3)
+texture = ExtResource("8_n3ahk")
+
 [node name="Car5" type="Sprite2D" parent="."]
 position = Vector2(-421, -262)
 scale = Vector2(3, 3)
@@ -249,6 +154,64 @@ texture = ExtResource("8_n3ahk")
 position = Vector2(-232, 136)
 scale = Vector2(3, 3)
 texture = ExtResource("9_at45c")
+
+[node name="PalmTrees" type="Sprite2D" parent="."]
+position = Vector2(454, -300)
+texture = ExtResource("6_jck2r")
+hframes = 4
+vframes = 4
+frame = 10
+
+[node name="PalmTrees" type="Sprite2D" parent="PalmTrees"]
+position = Vector2(-14, 116)
+texture = ExtResource("6_jck2r")
+hframes = 4
+vframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PalmTrees/PalmTrees"]
+root_node = NodePath("../../AnimationPlayer")
+libraries = {
+"": SubResource("AnimationLibrary_q43rx")
+}
+
+[node name="PalmTrees2" type="Sprite2D" parent="PalmTrees"]
+position = Vector2(10, 224)
+texture = ExtResource("6_jck2r")
+hframes = 4
+vframes = 4
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PalmTrees/PalmTrees2"]
+root_node = NodePath("../../PalmTrees3/AnimationPlayer2")
+libraries = {
+"": SubResource("AnimationLibrary_q43rx")
+}
+
+[node name="PalmTrees3" type="Sprite2D" parent="PalmTrees"]
+position = Vector2(-2, 436)
+texture = ExtResource("6_jck2r")
+hframes = 4
+vframes = 4
+frame = 1
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="PalmTrees/PalmTrees3"]
+root_node = NodePath("../../PalmTrees/AnimationPlayer")
+libraries = {
+"": SubResource("AnimationLibrary_q43rx")
+}
+
+[node name="PalmTrees4" type="Sprite2D" parent="PalmTrees"]
+position = Vector2(-3, 558)
+texture = ExtResource("6_jck2r")
+hframes = 4
+vframes = 4
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PalmTrees"]
+libraries = {
+"": SubResource("AnimationLibrary_q43rx")
+}
+script = ExtResource("7_58uel")
 
 [node name="PalmTrees3" type="Sprite2D" parent="."]
 position = Vector2(-491, -370)
@@ -399,6 +362,7 @@ shape = SubResource("RectangleShape2D_x4665")
 
 [node name="DriveableCar" type="StaticBody2D" parent="."]
 unique_name_in_owner = true
+script = ExtResource("14_n1le5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DriveableCar"]
 position = Vector2(293, 48)
@@ -411,18 +375,6 @@ unique_name_in_owner = true
 position = Vector2(292, 43)
 shape = SubResource("CapsuleShape2D_pipqo")
 debug_color = Color(0.305882, 0.619608, 0.321569, 0.419608)
-
-[node name="Car4" type="Sprite2D" parent="DriveableCar"]
-position = Vector2(294, 48)
-scale = Vector2(3, 3)
-texture = ExtResource("8_n3ahk")
-hframes = 4
-script = ExtResource("13_soy6t")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="DriveableCar/Car4"]
-libraries = {
-"": SubResource("AnimationLibrary_qhwp0")
-}
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="."]
 
@@ -500,14 +452,7 @@ shape = SubResource("CapsuleShape2D_fbj15")
 
 [node name="MiamiWorldBeach" type="Sprite2D" parent="."]
 position = Vector2(1043, 0)
-texture = ExtResource("14_kfpmk")
-hframes = 4
-script = ExtResource("15_r4x2h")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MiamiWorldBeach"]
-libraries = {
-"": SubResource("AnimationLibrary_68qyy")
-}
+texture = ExtResource("14_bky83")
 
 [node name="StaticBody2D15" type="StaticBody2D" parent="."]
 
@@ -531,52 +476,3 @@ shape = SubResource("CapsuleShape2D_svuqb")
 
 [node name="AnimationTree" type="AnimationTree" parent="Car7"]
 root_node = NodePath("../..")
-
-[node name="PalmTrees4" type="Sprite2D" parent="."]
-position = Vector2(464, -76)
-texture = ExtResource("6_jck2r")
-hframes = 4
-vframes = 4
-frame = 1
-
-[node name="PalmTrees5" type="Sprite2D" parent="."]
-position = Vector2(452, 136)
-texture = ExtResource("6_jck2r")
-hframes = 4
-vframes = 4
-frame = 1
-
-[node name="PalmTrees6" type="Sprite2D" parent="."]
-position = Vector2(451, 258)
-texture = ExtResource("6_jck2r")
-hframes = 4
-vframes = 4
-frame = 1
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
-unique_name_in_owner = true
-visible = false
-
-[node name="PalmTrees2" type="Sprite2D" parent="."]
-position = Vector2(440, -184)
-texture = ExtResource("6_jck2r")
-hframes = 4
-vframes = 4
-script = ExtResource("16_rdoda")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PalmTrees2"]
-libraries = {
-"": SubResource("AnimationLibrary_eaxr6")
-}
-
-[node name="PalmTrees" type="Sprite2D" parent="."]
-position = Vector2(454, -300)
-texture = ExtResource("6_jck2r")
-hframes = 4
-vframes = 4
-script = ExtResource("16_rdoda")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PalmTrees"]
-libraries = {
-"": SubResource("AnimationLibrary_q43rx")
-}

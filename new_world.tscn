@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://cg0se3t7gwqr4"]
 
 [ext_resource type="Script" path="res://Camera2D.gd" id="2_56458"]
-[ext_resource type="Script" path="res://CharacterBody2D.gd" id="2_i6mra"]
+[ext_resource type="Script" path="res://CharacterBody2DCHATGPT.gd" id="2_i6mra"]
 [ext_resource type="PackedScene" uid="uid://cfrbg0ctltybn" path="res://main_player.tscn" id="3_1hc3k"]
 [ext_resource type="Texture2D" uid="uid://dt4boe6cvc8j2" path="res://Sprites/WorldSprites/BushSprite.png" id="4_l0dqe"]
 [ext_resource type="Texture2D" uid="uid://c8aft33jvmi6e" path="res://Sprites/WorldSprites/BushCutSprite.png" id="5_5k4ep"]
