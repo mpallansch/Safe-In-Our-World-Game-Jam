@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://d16uamkxdv2aq"]
+[gd_scene load_steps=49 format=3 uid="uid://d16uamkxdv2aq"]
 
 [ext_resource type="Texture2D" uid="uid://d0l7yy0jhjmvr" path="res://Sprites/MiamiWorldBeachTown.png" id="1_8h03l"]
 [ext_resource type="PackedScene" uid="uid://cfrbg0ctltybn" path="res://main_player.tscn" id="2_s3f2t"]
@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://gq6a7v3dd0y5" path="res://Sprites/pixel-art-house.png" id="12_iv0ap"]
 [ext_resource type="Texture2D" uid="uid://mrud41gha40q" path="res://Sprites/Cars/car1.png" id="13_cgf1k"]
 [ext_resource type="Script" path="res://Car.gd" id="13_soy6t"]
-[ext_resource type="Texture2D" uid="uid://cjvfam68sl1ha" path="res://Sprites/MiamiWorldBeach2-Sheet.png" id="14_hq5nx"]
+[ext_resource type="Texture2D" uid="uid://cuswjts4frwjh" path="res://Sprites/MiamiWorldBeachwithPier-Sheet.png" id="14_w0qpo"]
 [ext_resource type="AudioStream" uid="uid://disyufuudttlf" path="res://Audio/sea waves sound effects.mp3" id="15_koimh"]
 [ext_resource type="Script" path="res://BeachWaves.gd" id="15_r4x2h"]
 [ext_resource type="Script" path="res://PalmTrees2.gd" id="16_rdoda"]
@@ -189,7 +189,7 @@ _data = {
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_di2bj"]
 radius = 75.0
-height = 814.0
+height = 542.932
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_svuqb"]
 radius = 30.0
@@ -199,6 +199,15 @@ height = 130.0
 _data = {
 "PalmTree": ExtResource("17_c4xt6")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hcnp2"]
+size = Vector2(669, 66)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_51cix"]
+size = Vector2(673.5, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trwbh"]
+size = Vector2(24.5, 150)
 
 [node name="MiamiWorld" type="Node2D"]
 
@@ -501,7 +510,7 @@ shape = SubResource("CapsuleShape2D_fbj15")
 
 [node name="MiamiWorldBeach" type="Sprite2D" parent="."]
 position = Vector2(1043, 0)
-texture = ExtResource("14_hq5nx")
+texture = ExtResource("14_w0qpo")
 hframes = 4
 script = ExtResource("15_r4x2h")
 
@@ -513,7 +522,7 @@ libraries = {
 [node name="StaticBody2D15" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D15"]
-position = Vector2(1047, -17)
+position = Vector2(1047, 104)
 rotation = -0.0523599
 shape = SubResource("CapsuleShape2D_di2bj")
 
@@ -581,3 +590,21 @@ script = ExtResource("16_rdoda")
 libraries = {
 "": SubResource("AnimationLibrary_q43rx")
 }
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(1139.5, -192)
+shape = SubResource("RectangleShape2D_hcnp2")
+
+[node name="StaticBody2D16" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D16"]
+position = Vector2(1134.75, -317.5)
+shape = SubResource("RectangleShape2D_51cix")
+
+[node name="StaticBody2D17" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D17"]
+position = Vector2(1475, -254)
+shape = SubResource("RectangleShape2D_trwbh")
