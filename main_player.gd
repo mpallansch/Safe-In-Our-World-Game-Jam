@@ -16,7 +16,10 @@ func _input(event):
 			#if target.is_in_group("NPC"):
 				# Talk to NPC
 			   # target.dialog()
-			#return     
+			#return  
+			
+# ---------------- Pause Menu -------------------------------------------
+	 
 #show pause menu
 					if !pause_screen.visible:
 						if event.is_action_pressed("Pause"):
@@ -28,7 +31,26 @@ func _input(event):
 							set_physics_process(false)
 				#set pauses state to be true
 							paused = true
+							#resume game
+				
+func _on_resume_pressed():
+		#hide pause menu
+	pause_screen.visible = false
+		#set pauses state to be false
+	get_tree().paused = false
+	paused = false
+		#accept movement and input
+	set_process_input(true)
+	set_physics_process(true)  
+	
+#func _on_quit_pressed():
+#		Global.change_scene("res://Scenes/main_scene.tscn")
+#		get_tree().paused = false
 
+#		Global.change_scene("res://Scenes/MainScene.tscn")
+#		get_tree().paused = false
+#		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		
 func _process(delta):
 	#Movement when direction button pressed
 	if Input.is_action_just_pressed("down"):

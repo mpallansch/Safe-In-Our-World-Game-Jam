@@ -277,8 +277,8 @@ debug_color = Color(0.121569, 0.631373, 0.411765, 0.419608)
 [node name="Pause_Menu" type="ColorRect" parent="CanvasLayer"]
 unique_name_in_owner = true
 visible = false
-offset_right = 320.0
-offset_bottom = 180.0
+offset_right = 640.0
+offset_bottom = 360.0
 color = Color(0.211765, 0.337255, 0.333333, 1)
 
 [node name="Resume" type="Button" parent="CanvasLayer/Pause_Menu"]
@@ -332,5 +332,8 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_33dph")
 theme_override_font_sizes/font_size = 12
 text = "QUIT   GAME"
+
+[connection signal="pressed" from="CanvasLayer/Pause_Menu/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause_Menu/Quit" to="." method="_on_quit_pressed"]
 
 [editable path="HurtBox"]

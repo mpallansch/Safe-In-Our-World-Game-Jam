@@ -680,23 +680,23 @@ position = Vector2(458, -493)
 position = Vector2(471, -418)
 
 [node name="MiamiWorldHighway" type="Sprite2D" parent="."]
-position = Vector2(-4221.5, -1513.5)
+position = Vector2(-4171.5, -1465.5)
 texture = ExtResource("22_6l2a0")
 
 [node name="MiamiWorldHighwayB2" type="Sprite2D" parent="."]
-position = Vector2(-3178.5, -1513.5)
+position = Vector2(-3128.5, -1465.5)
 texture = ExtResource("23_toj30")
 
 [node name="MiamiWorldHighwayB3" type="Sprite2D" parent="."]
-position = Vector2(-2135.5, -1513.5)
+position = Vector2(-2085.5, -1465.5)
 texture = ExtResource("23_toj30")
 
 [node name="MiamiWorldHighwayB4" type="Sprite2D" parent="."]
-position = Vector2(-1092.5, -1513.5)
+position = Vector2(-1042.5, -1465.5)
 texture = ExtResource("24_uag6l")
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(-2593, -1536)
+position = Vector2(-2543, -1488)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
