@@ -1,7 +1,8 @@
-[gd_scene load_steps=54 format=3 uid="uid://d16uamkxdv2aq"]
+[gd_scene load_steps=61 format=3 uid="uid://d16uamkxdv2aq"]
 
 [ext_resource type="Texture2D" uid="uid://d0l7yy0jhjmvr" path="res://Sprites/MiamiWorldBeachTown.png" id="1_8h03l"]
 [ext_resource type="PackedScene" uid="uid://cfrbg0ctltybn" path="res://main_player.tscn" id="2_s3f2t"]
+[ext_resource type="Texture2D" uid="uid://fpsfe13psl13" path="res://Sprites/WorldSprites/MiamiWorldHighwayB4.png" id="2_tsrs0"]
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="2_ydw3n"]
 [ext_resource type="Script" path="res://Camera2D.gd" id="3_6tkbx"]
 [ext_resource type="AudioStream" uid="uid://dpxke50bqniq7" path="res://Audio/Music/Carlos Lyra - Influencia Do Jazz.WAV" id="5_37rj3"]
@@ -21,6 +22,10 @@
 [ext_resource type="Animation" uid="uid://bmneltwk0kb4a" path="res://Animations/PalmTree.res" id="17_c4xt6"]
 [ext_resource type="AudioStream" uid="uid://dopbyx240ihhq" path="res://Audio/sea waves sound effects2.mp3" id="18_gnbfr"]
 [ext_resource type="PackedScene" uid="uid://c3qf7r0x3xe8f" path="res://PalmTree.tscn" id="21_ryq42"]
+[ext_resource type="Texture2D" uid="uid://b7xtrjjsmcldk" path="res://Sprites/WorldSprites/MiamiWorldHighway.png" id="22_6l2a0"]
+[ext_resource type="Texture2D" uid="uid://bg1kl263j6tcg" path="res://Sprites/WorldSprites/MiamiWorldHighwayB2.png" id="23_toj30"]
+[ext_resource type="Texture2D" uid="uid://dogxwhq36kajj" path="res://Sprites/WorldSprites/MiamiWorldHighwayB3.png" id="24_uag6l"]
+[ext_resource type="AudioStream" uid="uid://jc5wj8tpm3pr" path="res://Audio/Music/gmsweet.WAV" id="25_667ex"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gfi0c"]
 radius = 8.0
@@ -220,10 +225,20 @@ size = Vector2(673.5, 29)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trwbh"]
 size = Vector2(24.5, 150)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_6v6ux"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iuae0"]
+radius = 11.0
+height = 762.0
+
 [node name="MiamiWorld" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_8h03l")
+
+[node name="MiamiWorldHighwayB5" type="Sprite2D" parent="."]
+position = Vector2(0, -733)
+texture = ExtResource("2_tsrs0")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 unique_name_in_owner = true
@@ -642,3 +657,65 @@ position = Vector2(455, 132)
 
 [node name="PalmTree2" parent="." instance=ExtResource("21_ryq42")]
 position = Vector2(451, 254)
+
+[node name="PalmTree4" parent="." instance=ExtResource("21_ryq42")]
+position = Vector2(459, -1087)
+
+[node name="PalmTree5" parent="." instance=ExtResource("21_ryq42")]
+position = Vector2(462, -1001)
+
+[node name="PalmTree6" parent="." instance=ExtResource("21_ryq42")]
+position = Vector2(459, -852)
+
+[node name="PalmTree7" parent="." instance=ExtResource("21_ryq42")]
+position = Vector2(444, -704)
+
+[node name="PalmTree8" parent="." instance=ExtResource("21_ryq42")]
+position = Vector2(452, -593)
+
+[node name="PalmTree9" parent="." instance=ExtResource("21_ryq42")]
+position = Vector2(458, -493)
+
+[node name="PalmTree10" parent="." instance=ExtResource("21_ryq42")]
+position = Vector2(471, -418)
+
+[node name="MiamiWorldHighway" type="Sprite2D" parent="."]
+position = Vector2(-4221.5, -1513.5)
+texture = ExtResource("22_6l2a0")
+
+[node name="MiamiWorldHighwayB2" type="Sprite2D" parent="."]
+position = Vector2(-3178.5, -1513.5)
+texture = ExtResource("23_toj30")
+
+[node name="MiamiWorldHighwayB3" type="Sprite2D" parent="."]
+position = Vector2(-2135.5, -1513.5)
+texture = ExtResource("23_toj30")
+
+[node name="MiamiWorldHighwayB4" type="Sprite2D" parent="."]
+position = Vector2(-1092.5, -1513.5)
+texture = ExtResource("24_uag6l")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-2593, -1536)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_6v6ux")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Area2D"]
+stream = ExtResource("25_667ex")
+volume_db = -4.04
+autoplay = true
+max_distance = 3000.0
+
+[node name="StaticBody2D15" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D15"]
+position = Vector2(-222, -819)
+shape = SubResource("CapsuleShape2D_iuae0")
+
+[node name="StaticBody2D18" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D18"]
+position = Vector2(246, -964)
+shape = SubResource("CapsuleShape2D_iuae0")

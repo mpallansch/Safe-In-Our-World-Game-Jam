@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3qf7r0x3xe8f"]
+[gd_scene load_steps=6 format=3 uid="uid://c3qf7r0x3xe8f"]
 
 [ext_resource type="Texture2D" uid="uid://c3s0aae7krhpu" path="res://Sprites/palme-animation1.png" id="1_txumc"]
 [ext_resource type="Script" path="res://PalmTree10.gd" id="2_p0oe6"]
@@ -25,6 +25,9 @@ _data = {
 "PalmTree": SubResource("Animation_1hxxk")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_38grt"]
+height = 90.0
+
 [node name="PalmTree" type="Node2D"]
 
 [node name="PalmTree" type="Sprite2D" parent="."]
@@ -37,3 +40,10 @@ script = ExtResource("2_p0oe6")
 libraries = {
 "": SubResource("AnimationLibrary_sg6f1")
 }
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-3, 22)
+rotation = 0.20944
+shape = SubResource("CapsuleShape2D_38grt")
