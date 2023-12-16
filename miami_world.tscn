@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://d16uamkxdv2aq"]
+[gd_scene load_steps=54 format=3 uid="uid://d16uamkxdv2aq"]
 
 [ext_resource type="Texture2D" uid="uid://d0l7yy0jhjmvr" path="res://Sprites/MiamiWorldBeachTown.png" id="1_8h03l"]
 [ext_resource type="PackedScene" uid="uid://cfrbg0ctltybn" path="res://main_player.tscn" id="2_s3f2t"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" path="res://PalmTrees2.gd" id="16_rdoda"]
 [ext_resource type="Animation" uid="uid://bmneltwk0kb4a" path="res://Animations/PalmTree.res" id="17_c4xt6"]
 [ext_resource type="AudioStream" uid="uid://dopbyx240ihhq" path="res://Audio/sea waves sound effects2.mp3" id="18_gnbfr"]
+[ext_resource type="PackedScene" uid="uid://c3qf7r0x3xe8f" path="res://PalmTree.tscn" id="21_ryq42"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gfi0c"]
 radius = 8.0
@@ -348,18 +349,8 @@ libraries = {
 "": SubResource("AnimationLibrary_q43rx")
 }
 
-[node name="PalmTrees3" type="Sprite2D" parent="PalmTrees3/PalmTrees3/PalmTrees3/PalmTrees3/PalmTrees3/PalmTrees3"]
-position = Vector2(720, -264)
-texture = ExtResource("6_jck2r")
-hframes = 4
-vframes = 4
-frame = 1
-
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="PalmTrees3/PalmTrees3/PalmTrees3/PalmTrees3/PalmTrees3/PalmTrees3/PalmTrees3"]
-root_node = NodePath("../../PalmTrees/AnimationPlayer")
-libraries = {
-"": SubResource("AnimationLibrary_q43rx")
-}
+[node name="PalmTree3" parent="." instance=ExtResource("21_ryq42")]
+position = Vector2(249, -361)
 
 [node name="House" type="Sprite2D" parent="."]
 position = Vector2(149, 10)
@@ -597,27 +588,6 @@ shape = SubResource("CapsuleShape2D_svuqb")
 [node name="AnimationTree" type="AnimationTree" parent="Car7"]
 root_node = NodePath("../..")
 
-[node name="PalmTrees4" type="Sprite2D" parent="."]
-position = Vector2(464, -76)
-texture = ExtResource("6_jck2r")
-hframes = 4
-vframes = 4
-frame = 1
-
-[node name="PalmTrees5" type="Sprite2D" parent="."]
-position = Vector2(452, 136)
-texture = ExtResource("6_jck2r")
-hframes = 4
-vframes = 4
-frame = 1
-
-[node name="PalmTrees6" type="Sprite2D" parent="."]
-position = Vector2(451, 258)
-texture = ExtResource("6_jck2r")
-hframes = 4
-vframes = 4
-frame = 1
-
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 unique_name_in_owner = true
 visible = false
@@ -663,3 +633,12 @@ shape = SubResource("RectangleShape2D_51cix")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D17"]
 position = Vector2(1475, -254)
 shape = SubResource("RectangleShape2D_trwbh")
+
+[node name="Node2D" parent="." instance=ExtResource("21_ryq42")]
+position = Vector2(463, -79)
+
+[node name="PalmTree" parent="." instance=ExtResource("21_ryq42")]
+position = Vector2(455, 132)
+
+[node name="PalmTree2" parent="." instance=ExtResource("21_ryq42")]
+position = Vector2(451, 254)

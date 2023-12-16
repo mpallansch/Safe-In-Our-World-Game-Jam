@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3qf7r0x3xe8f"]
+
+[ext_resource type="Texture2D" uid="uid://c3s0aae7krhpu" path="res://Sprites/palme-animation1.png" id="1_txumc"]
+[ext_resource type="Script" path="res://PalmTree10.gd" id="2_p0oe6"]
+
+[sub_resource type="Animation" id="Animation_1hxxk"]
+resource_name = "PalmTree"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sg6f1"]
+_data = {
+"PalmTree": SubResource("Animation_1hxxk")
+}
+
+[node name="PalmTree" type="Node2D"]
+
+[node name="PalmTree" type="Sprite2D" parent="."]
+texture = ExtResource("1_txumc")
+hframes = 4
+vframes = 4
+script = ExtResource("2_p0oe6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PalmTree"]
+libraries = {
+"": SubResource("AnimationLibrary_sg6f1")
+}
