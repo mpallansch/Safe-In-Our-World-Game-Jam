@@ -1,10 +1,9 @@
-[gd_scene load_steps=61 format=3 uid="uid://d16uamkxdv2aq"]
+[gd_scene load_steps=55 format=3 uid="uid://d16uamkxdv2aq"]
 
 [ext_resource type="Texture2D" uid="uid://d0l7yy0jhjmvr" path="res://Sprites/MiamiWorldBeachTown.png" id="1_8h03l"]
 [ext_resource type="PackedScene" uid="uid://cfrbg0ctltybn" path="res://main_player.tscn" id="2_s3f2t"]
 [ext_resource type="Texture2D" uid="uid://fpsfe13psl13" path="res://Sprites/WorldSprites/MiamiWorldHighwayB4.png" id="2_tsrs0"]
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="2_ydw3n"]
-[ext_resource type="Script" path="res://Camera2D.gd" id="3_6tkbx"]
 [ext_resource type="AudioStream" uid="uid://dpxke50bqniq7" path="res://Audio/Music/Carlos Lyra - Influencia Do Jazz.WAV" id="5_37rj3"]
 [ext_resource type="Texture2D" uid="uid://dlvy2syksqf2t" path="res://Sprites/Cars/pickuptruck.png" id="6_ews58"]
 [ext_resource type="Texture2D" uid="uid://c3s0aae7krhpu" path="res://Sprites/palme-animation1.png" id="6_jck2r"]
@@ -13,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://d0q24pkaymot1" path="res://Sprites/Cars/car2.png" id="9_at45c"]
 [ext_resource type="Texture2D" uid="uid://gq6a7v3dd0y5" path="res://Sprites/pixel-art-house.png" id="12_iv0ap"]
 [ext_resource type="Texture2D" uid="uid://mrud41gha40q" path="res://Sprites/Cars/car1.png" id="13_cgf1k"]
-[ext_resource type="Script" path="res://Car.gd" id="13_soy6t"]
 [ext_resource type="Texture2D" uid="uid://dmi7sx6ul2b5h" path="res://Sprites/WorldSprites/MiamiWorldBeachwithPierInSync-Sheet-Sheet.png" id="14_q8nfk"]
 [ext_resource type="AudioStream" uid="uid://disyufuudttlf" path="res://Audio/sea waves sound effects.mp3" id="15_koimh"]
 [ext_resource type="Script" path="res://BeachWaves.gd" id="15_r4x2h"]
@@ -26,6 +24,9 @@
 [ext_resource type="Texture2D" uid="uid://bg1kl263j6tcg" path="res://Sprites/WorldSprites/MiamiWorldHighwayB2.png" id="23_toj30"]
 [ext_resource type="Texture2D" uid="uid://dogxwhq36kajj" path="res://Sprites/WorldSprites/MiamiWorldHighwayB3.png" id="24_uag6l"]
 [ext_resource type="AudioStream" uid="uid://jc5wj8tpm3pr" path="res://Audio/Music/gmsweet.WAV" id="25_667ex"]
+[ext_resource type="PackedScene" uid="uid://dkv3p62rn8m47" path="res://driveable_car.tscn" id="27_0gfdv"]
+[ext_resource type="Texture2D" uid="uid://cunycat7r7mmi" path="res://Sprites/WorldSprites/MiamiWorldHighwayC6.png" id="27_2uo0q"]
+[ext_resource type="PackedScene" uid="uid://dmohqkf84ee8a" path="res://h_box_container.tscn" id="27_upm2j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gfi0c"]
 radius = 8.0
@@ -57,86 +58,6 @@ size = Vector2(201.333, 89.3333)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x4665"]
 size = Vector2(135.667, 134)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_grqpa"]
-radius = 30.0
-height = 130.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pipqo"]
-radius = 86.0
-height = 172.0
-
-[sub_resource type="Animation" id="Animation_b74u7"]
-resource_name = "CarDown"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_nd1q8"]
-resource_name = "CarLeft"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-
-[sub_resource type="Animation" id="Animation_1j3hc"]
-resource_name = "CarRight"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [3]
-}
-
-[sub_resource type="Animation" id="Animation_2nrl1"]
-resource_name = "CarUp"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_qhwp0"]
-_data = {
-"CarDown": SubResource("Animation_b74u7"),
-"CarLeft": SubResource("Animation_nd1q8"),
-"CarRight": SubResource("Animation_1j3hc"),
-"CarUp": SubResource("Animation_2nrl1")
-}
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ejvvj"]
 radius = 16.0
@@ -240,25 +161,22 @@ texture = ExtResource("1_8h03l")
 position = Vector2(0, -733)
 texture = ExtResource("2_tsrs0")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="player" type="CharacterBody2D" parent="."]
 unique_name_in_owner = true
 z_index = 15
 position = Vector2(315, 70)
 script = ExtResource("2_ydw3n")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-position = Vector2(11, -3)
-scale = Vector2(167.069, 210.637)
-script = ExtResource("3_6tkbx")
-
-[node name="MainPlayer" parent="CharacterBody2D" instance=ExtResource("2_s3f2t")]
+[node name="MainPlayer" parent="player" instance=ExtResource("2_s3f2t")]
 position = Vector2(-130, -96)
 disable_mode = 2
 slide_on_ceiling = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
 position = Vector2(30, -13)
 shape = SubResource("CircleShape2D_gfi0c")
+
+[node name="Camera2D" type="Camera2D" parent="player"]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_37rj3")
@@ -271,7 +189,7 @@ scale = Vector2(3, 3)
 texture = ExtResource("6_ews58")
 
 [node name="Car3" type="Sprite2D" parent="."]
-position = Vector2(375, -222)
+position = Vector2(373, -446)
 scale = Vector2(3, 3)
 texture = ExtResource("7_h1wxf")
 
@@ -423,33 +341,6 @@ scale = Vector2(3, 3)
 position = Vector2(129.833, -4.33334)
 shape = SubResource("RectangleShape2D_x4665")
 
-[node name="DriveableCar" type="StaticBody2D" parent="."]
-unique_name_in_owner = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DriveableCar"]
-position = Vector2(293, 48)
-shape = SubResource("CapsuleShape2D_grqpa")
-
-[node name="Area2D" type="Area2D" parent="DriveableCar"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DriveableCar/Area2D"]
-unique_name_in_owner = true
-position = Vector2(292, 43)
-shape = SubResource("CapsuleShape2D_pipqo")
-debug_color = Color(0.305882, 0.619608, 0.321569, 0.419608)
-
-[node name="Car4" type="Sprite2D" parent="DriveableCar"]
-position = Vector2(294, 48)
-scale = Vector2(3, 3)
-texture = ExtResource("8_n3ahk")
-hframes = 4
-script = ExtResource("13_soy6t")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="DriveableCar/Car4"]
-libraries = {
-"": SubResource("AnimationLibrary_qhwp0")
-}
-
 [node name="StaticBody2D5" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
@@ -475,6 +366,7 @@ position = Vector2(-460, 130)
 shape = SubResource("CapsuleShape2D_47fmo")
 
 [node name="StaticBody2D9" type="StaticBody2D" parent="."]
+position = Vector2(0, -226)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D9"]
 position = Vector2(375, -215)
@@ -553,6 +445,17 @@ hframes = 4
 script = ExtResource("15_r4x2h")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MiamiWorldBeach3"]
+libraries = {
+"": SubResource("AnimationLibrary_68qyy")
+}
+
+[node name="MiamiWorldBeach4" type="Sprite2D" parent="."]
+position = Vector2(1043, -1466)
+texture = ExtResource("16_e2rkr")
+hframes = 4
+script = ExtResource("15_r4x2h")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MiamiWorldBeach4"]
 libraries = {
 "": SubResource("AnimationLibrary_68qyy")
 }
@@ -680,23 +583,23 @@ position = Vector2(458, -493)
 position = Vector2(471, -418)
 
 [node name="MiamiWorldHighway" type="Sprite2D" parent="."]
-position = Vector2(-4171.5, -1465.5)
+position = Vector2(-4165.5, -1462.5)
 texture = ExtResource("22_6l2a0")
 
 [node name="MiamiWorldHighwayB2" type="Sprite2D" parent="."]
-position = Vector2(-3128.5, -1465.5)
+position = Vector2(-3122.5, -1462.5)
 texture = ExtResource("23_toj30")
 
 [node name="MiamiWorldHighwayB3" type="Sprite2D" parent="."]
-position = Vector2(-2085.5, -1465.5)
+position = Vector2(-2079.5, -1462.5)
 texture = ExtResource("23_toj30")
 
 [node name="MiamiWorldHighwayB4" type="Sprite2D" parent="."]
-position = Vector2(-1042.5, -1465.5)
+position = Vector2(-1036.5, -1462.5)
 texture = ExtResource("24_uag6l")
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(-2543, -1488)
+position = Vector2(-2537, -1485)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -719,3 +622,27 @@ shape = SubResource("CapsuleShape2D_iuae0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D18"]
 position = Vector2(246, -964)
 shape = SubResource("CapsuleShape2D_iuae0")
+
+[node name="MiamiWorldHighwayC6" type="Sprite2D" parent="."]
+position = Vector2(-37, -1461)
+texture = ExtResource("27_2uo0q")
+
+[node name="HBoxContainer" parent="." instance=ExtResource("27_upm2j")]
+visible = false
+
+[node name="DriveableCar" parent="." instance=ExtResource("27_0gfdv")]
+
+[node name="Driveable_Car" parent="DriveableCar" index="0"]
+position = Vector2(-192, -116)
+
+[node name="Sprite2D" parent="DriveableCar/Driveable_Car" index="0"]
+scale = Vector2(3, 3)
+
+[node name="CollisionShape2D" parent="DriveableCar/Driveable_Car" index="2"]
+position = Vector2(1.5, 0.5)
+debug_color = Color(0.113725, 0.588235, 0.745098, 0.419608)
+
+[connection signal="body_entered" from="DriveableCar/Driveable_Car/Area2D" to="DriveableCar/Driveable_Car" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="DriveableCar/Driveable_Car/Area2D" to="DriveableCar/Driveable_Car" method="_on_area_2d_body_exited"]
+
+[editable path="DriveableCar"]

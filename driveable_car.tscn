@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkv3p62rn8m47"]
+
+[ext_resource type="Texture2D" uid="uid://q71ew005iogp" path="res://Sprites/Cars/car4.png" id="1_3s4at"]
+[ext_resource type="Script" path="res://DrCar.gd" id="1_fiy2f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gtdob"]
+size = Vector2(129, 65)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_knpid"]
+radius = 79.7621
+
+[node name="DriveableCar" type="Node2D"]
+
+[node name="Driveable_Car" type="CharacterBody2D" parent="."]
+script = ExtResource("1_fiy2f")
+
+[node name="Sprite2D" type="Sprite2D" parent="Driveable_Car"]
+texture = ExtResource("1_3s4at")
+hframes = 4
+frame = 3
+
+[node name="Camera2D" type="Camera2D" parent="Driveable_Car"]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Driveable_Car"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_gtdob")
+
+[node name="Area2D" type="Area2D" parent="Driveable_Car"]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Driveable_Car/Area2D"]
+shape = SubResource("CircleShape2D_knpid")
+debug_color = Color(0.835294, 0.337255, 0.505882, 0.419608)

@@ -5,6 +5,8 @@ extends CharacterBody2D
 
 const SPEED = 150.0
 const JUMP_VELOCITY = -400.0
+var rotation_speed = 1.5  # turning speed in radians/sec
+
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -23,5 +25,6 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_vector("left", "right", "up", "down")
 	velocity = direction * SPEED
+
 
 	move_and_slide()

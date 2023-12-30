@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmohqkf84ee8a"]
+
+[ext_resource type="Script" path="res://HBoxContainer.gd" id="1_3wmbt"]
+[ext_resource type="Texture2D" uid="uid://bxrgb8ubashpd" path="res://Sprites/HUD/full heart.png" id="2_dlub4"]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_3wmbt")
+
+[node name="1" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_dlub4")
+
+[node name="2" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_dlub4")
+
+[node name="3" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_dlub4")
+
+[node name="4" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_dlub4")
+
+[node name="5" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_dlub4")
