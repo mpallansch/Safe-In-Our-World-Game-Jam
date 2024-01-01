@@ -2,11 +2,18 @@ extends CharacterBody2D
 
 var paused
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+
+var health = 40
+var health_max = 80
+var attack_power = 10
+var defense = 4
 
 # UI nodes
 @onready var pause_screen =  %Pause_Menu
+# assuming the character by default looks to the right
+
+
+
 
 func _input(event):
 	#interact with world         
@@ -64,15 +71,52 @@ func _process(delta):
 	
 	#Movement when direction button released
 	if Input.is_action_just_released("down"):
-		$AnimationPlayer.stop()
+		$AnimationPlayer.play("IdleDown")
 	if Input.is_action_just_released("right"):
-		$AnimationPlayer.stop()
+		$AnimationPlayer.play("IdleRight")
 	if Input.is_action_just_released("left"):
-		$AnimationPlayer.stop()
+		$AnimationPlayer.play("IdleLeft")
 	if Input.is_action_just_released("up"):
+		$AnimationPlayer.play("IdleUp")
+	
+	if ($AnimationPlayer.current_animation == "WalkDown" && 
+	Input.is_action_just_pressed("Punch")):
+		$AnimationPlayer.play("PunchDown")
+		
+	if ($AnimationPlayer.current_animation == "IdleDown" && 
+	Input.is_action_just_pressed("Punch")):
+		$AnimationPlayer.play("PunchDown")
+	if Input.is_action_just_released("Punch"):
 		$AnimationPlayer.stop()
+	
+	if ($AnimationPlayer.current_animation == "WalkLeft" && 
+	Input.is_action_just_pressed("Punch")):
+		$AnimationPlayer.play("PunchLeft")
+		
+	if ($AnimationPlayer.current_animation == "IdleLeft" && 
+	Input.is_action_just_pressed("Punch")):
+		$AnimationPlayer.play("PunchLeft")
+		
+	if ($AnimationPlayer.current_animation == "WalkRight" && 
+	Input.is_action_just_pressed("Punch")):
+		$AnimationPlayer.play("PunchRight")
+		
+	if ($AnimationPlayer.current_animation == "IdleRight" && 
+	Input.is_action_just_pressed("Punch")):
+		$AnimationPlayer.play("PunchRight")
+		
+	if ($AnimationPlayer.current_animation == "WalkUp" && 
+	Input.is_action_just_pressed("Punch")):
+		$AnimationPlayer.play("PunchUp")
+		
+	if ($AnimationPlayer.current_animation == "IdleUp" && 
+	Input.is_action_just_pressed("Punch")):
+		$AnimationPlayer.play("PunchUp")
+		print($AnimationPlayer.current_animation)
 		
 	
+	
+
 
 
 

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://42bprcl442tx"
+path="res://.godot/imported/sea waves sound effects.mp3-e20425950b29c445d5c56f1503da6264.mp3str"
+
+[deps]
+
+source_file="res://Audio/SoundFX/sea waves sound effects.mp3"
+dest_files=["res://.godot/imported/sea waves sound effects.mp3-e20425950b29c445d5c56f1503da6264.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

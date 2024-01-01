@@ -1,24 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://cfrbg0ctltybn"]
+[gd_scene load_steps=20 format=3 uid="uid://cfrbg0ctltybn"]
 
 [ext_resource type="Script" path="res://main_player.gd" id="1_t26lu"]
-[ext_resource type="Texture2D" uid="uid://dsxr3k2qdqwfd" path="res://Sprites/Main Character Sprites/MainCharWalkAndSwordspritesheet.png" id="2_3oo56"]
+[ext_resource type="Texture2D" uid="uid://dl6mv0cdbssal" path="res://Sprites/Main Character Sprites/MCWalkPunchSheet_sprite_0.png" id="2_gsslf"]
 [ext_resource type="PackedScene" uid="uid://db64f0l182b8o" path="res://Overlap/HurtBox.tscn" id="3_4itbo"]
 [ext_resource type="FontFile" uid="uid://l83qfd6t414y" path="res://Fonts/OldSchoolAdventures-42j9.ttf" id="4_33dph"]
-
-[sub_resource type="Animation" id="Animation_tqmq3"]
-resource_name = "DownRight"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MainPlayerSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [63]
-}
 
 [sub_resource type="Animation" id="Animation_mlv26"]
 resource_name = "IdleDown"
@@ -34,7 +19,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [63]
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_v52ae"]
@@ -51,7 +36,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [27]
+"values": [25]
 }
 
 [sub_resource type="Animation" id="Animation_x4kok"]
@@ -68,7 +53,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [52]
+"values": [15]
 }
 
 [sub_resource type="Animation" id="Animation_3jl1p"]
@@ -85,79 +70,79 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [16]
+}
+
+[sub_resource type="Animation" id="Animation_m8bgk"]
+resource_name = "PunchDown"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainPlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [33, 34, 35, 36, 37]
+}
+
+[sub_resource type="Animation" id="Animation_ydkw7"]
+resource_name = "PunchLeft"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainPlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [51, 52, 53, 54, 55, 56, 57, 58]
+}
+
+[sub_resource type="Animation" id="Animation_usrfc"]
+resource_name = "PunchRight"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainPlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [43, 44, 45, 46, 47, 48, 49, 50]
+}
+
+[sub_resource type="Animation" id="Animation_tv2xw"]
+resource_name = "PunchUp"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainPlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [38, 39, 40, 41, 42]
 }
 
 [sub_resource type="Animation" id="Animation_u06yu"]
 length = 0.001
-
-[sub_resource type="Animation" id="Animation_kmoim"]
-resource_name = "SwordAttackDown"
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MainPlayerSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [18, 19, 20, 21, 22, 23, 24, 25]
-}
-
-[sub_resource type="Animation" id="Animation_akc27"]
-resource_name = "SwordAttackLeft"
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MainPlayerSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [36, 37, 38, 39, 40, 41, 42, 43]
-}
-
-[sub_resource type="Animation" id="Animation_rgr8q"]
-resource_name = "SwordAttackRight"
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MainPlayerSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [54, 55, 56, 57, 58, 59, 60, 61]
-}
-
-[sub_resource type="Animation" id="Animation_w0qri"]
-resource_name = "SwordAttackUp"
-length = 0.9
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MainPlayerSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [9, 10, 11, 12, 13, 14, 15, 16, 17]
-}
 
 [sub_resource type="Animation" id="Animation_wn3mb"]
 resource_name = "WalkDown"
@@ -173,7 +158,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [63, 64, 65, 66, 67, 68, 69, 70]
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
 
 [sub_resource type="Animation" id="Animation_13kp4"]
@@ -190,7 +175,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [27, 28, 29, 30, 31, 32, 33, 34]
+"values": [25, 26, 27, 28, 29, 30, 31, 32]
 }
 
 [sub_resource type="Animation" id="Animation_unfvj"]
@@ -207,7 +192,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [52, 51, 50, 49, 48, 47, 46, 45]
+"values": [15, 14, 13, 12, 11, 10, 9, 8]
 }
 
 [sub_resource type="Animation" id="Animation_08juu"]
@@ -224,21 +209,20 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+"values": [16, 17, 18, 19, 20, 21, 22, 23, 24]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7dpq4"]
 _data = {
-"DownRight": SubResource("Animation_tqmq3"),
 "IdleDown": SubResource("Animation_mlv26"),
 "IdleLeft": SubResource("Animation_v52ae"),
 "IdleRight": SubResource("Animation_x4kok"),
 "IdleUp": SubResource("Animation_3jl1p"),
+"PunchDown": SubResource("Animation_m8bgk"),
+"PunchLeft": SubResource("Animation_ydkw7"),
+"PunchRight": SubResource("Animation_usrfc"),
+"PunchUp": SubResource("Animation_tv2xw"),
 "RESET": SubResource("Animation_u06yu"),
-"SwordAttackDown": SubResource("Animation_kmoim"),
-"SwordAttackLeft": SubResource("Animation_akc27"),
-"SwordAttackRight": SubResource("Animation_rgr8q"),
-"SwordAttackUp": SubResource("Animation_w0qri"),
 "WalkDown": SubResource("Animation_wn3mb"),
 "WalkLeft": SubResource("Animation_13kp4"),
 "WalkRight": SubResource("Animation_unfvj"),
@@ -255,10 +239,9 @@ script = ExtResource("1_t26lu")
 [node name="MainPlayerSprite" type="Sprite2D" parent="."]
 position = Vector2(160, 81)
 scale = Vector2(2, 2)
-texture = ExtResource("2_3oo56")
-hframes = 9
-vframes = 8
-frame = 63
+texture = ExtResource("2_gsslf")
+hframes = 59
+frame = 25
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

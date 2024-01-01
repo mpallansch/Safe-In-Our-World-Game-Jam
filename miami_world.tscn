@@ -150,7 +150,7 @@ size = Vector2(24.5, 150)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iuae0"]
 radius = 11.0
-height = 762.0
+height = 726.0
 
 [node name="MiamiWorld" type="Node2D"]
 
@@ -189,7 +189,7 @@ scale = Vector2(3, 3)
 texture = ExtResource("6_ews58")
 
 [node name="Car3" type="Sprite2D" parent="."]
-position = Vector2(373, -446)
+position = Vector2(364, -683)
 scale = Vector2(3, 3)
 texture = ExtResource("7_h1wxf")
 
@@ -369,7 +369,7 @@ shape = SubResource("CapsuleShape2D_47fmo")
 position = Vector2(0, -226)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D9"]
-position = Vector2(375, -215)
+position = Vector2(367, -442)
 shape = SubResource("CapsuleShape2D_mjb5o")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
@@ -620,7 +620,7 @@ shape = SubResource("CapsuleShape2D_iuae0")
 [node name="StaticBody2D18" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D18"]
-position = Vector2(246, -964)
+position = Vector2(244, -1143)
 shape = SubResource("CapsuleShape2D_iuae0")
 
 [node name="MiamiWorldHighwayC6" type="Sprite2D" parent="."]
