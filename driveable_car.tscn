@@ -12,6 +12,7 @@ radius = 79.7621
 [node name="DriveableCar" type="Node2D"]
 
 [node name="Driveable_Car" type="CharacterBody2D" parent="."]
+rotation = -1.5708
 script = ExtResource("1_fiy2f")
 
 [node name="Sprite2D" type="Sprite2D" parent="Driveable_Car"]
@@ -21,6 +22,7 @@ frame = 3
 
 [node name="Camera2D" type="Camera2D" parent="Driveable_Car"]
 unique_name_in_owner = true
+zoom = Vector2(1.5, 1.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Driveable_Car"]
 position = Vector2(0.5, 0)

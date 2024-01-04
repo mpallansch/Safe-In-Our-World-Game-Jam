@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="alttp"
+config/name="Miami_World"
 run/main_scene="res://miami_world.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://Sprites/Main Character Sprites/PapoSpriteLeftCapture.PNG"
 
 [display]
 
